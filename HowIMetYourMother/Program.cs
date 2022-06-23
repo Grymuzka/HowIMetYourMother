@@ -34,11 +34,19 @@ namespace HowIMetYourMother
 
             // -------------------- LINQ --------------------
 
-            Console.WriteLine("********* Tytuły pierwszych odcinków sezonów*******\n");
+            Console.WriteLine("********* Tytuły pierwszych odcinków sezonów *******\n");
             foreach(Episode episode in EpisodeData.FirstsEpisodes())
             {
                 Console.WriteLine(episode.Title);
             }
+
+            Console.WriteLine("\n********* Odcinki zawierające w tytule imię głównego bohatera *******\n");
+            foreach (Episode episode in EpisodeData.TedInTitle())
+            {
+                Console.WriteLine(episode.Title);
+            }
+
+            Console.WriteLine($"\n********* Emisja \"Jak poznałem waszą matkę\" trwała {EpisodeData.HowLong().Days} dni *******\n");
 
             Console.ReadKey();
         }

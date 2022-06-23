@@ -43,5 +43,27 @@ namespace HowIMetYourMother
             return episodes;
         }
 
+        public static List<Episode> TedInTitle()
+        {
+            List<Episode> episodes = null;
+            using(var db = new EpisodeContext())
+            {
+                episodes = db.Episodes.Where(w => w.Title.Contains("Ted")).ToList();
+            }
+            return episodes;
+        }
+
+        public static TimeSpan HowLong()
+        {
+            Episode firstEpisode = null;
+            Episode lastEpisode = null;
+            using (var db = new EpisodeContext())
+            {
+                firstEpisode = db.Episodes.Where(w => w.EpisodeNrOverall == 1).ToList().First();
+                lastEpisode = db.Episodes.Where(w => w.EpisodeNrOverall == 208).ToList().First();
+            }
+            TimeSpan howLong = (lastEpisode.Date - firstEpisode.Date);
+            return howLong;
+        }
     }
 }
