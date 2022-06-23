@@ -41,12 +41,18 @@ namespace HowIMetYourMother
             }
 
             Console.WriteLine("\n********* Odcinki zawierające w tytule imię głównego bohatera *******\n");
-            foreach (Episode episode in EpisodeData.TedInTitle())
+            foreach(Episode episode in EpisodeData.TedInTitle())
             {
                 Console.WriteLine(episode.Title);
             }
 
             Console.WriteLine($"\n********* Emisja \"Jak poznałem waszą matkę\" trwała {EpisodeData.HowLong().Days} dni *******\n");
+
+            Console.WriteLine("*****Odcinki napisane przez Pamela Fryman oraz wyreżyserowane przez Stephen Lloyd***\n");
+            foreach(Episode episode in EpisodeData.FrymanAndLloyd())
+            {
+                Console.WriteLine(episode.Title);
+            }
 
             Console.ReadKey();
         }

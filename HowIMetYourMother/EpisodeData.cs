@@ -65,5 +65,17 @@ namespace HowIMetYourMother
             TimeSpan howLong = (lastEpisode.Date - firstEpisode.Date);
             return howLong;
         }
+
+        public static List<Episode> FrymanAndLloyd()
+        {
+            List<Episode> episodes = null;
+            using (var db = new EpisodeContext())
+            {
+                episodes = db.Episodes.Where(w => w.DirectedBy == "Pamela Fryman" && w.WrittenBy == "Stephen Lloyd").OrderBy(o => o.Title).ToList();
+            }
+            return episodes;
+        }
+
+
     }
 }
