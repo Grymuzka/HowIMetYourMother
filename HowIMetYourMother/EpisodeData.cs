@@ -75,7 +75,19 @@ namespace HowIMetYourMother
             }
             return episodes;
         }
+        public static List<Episode> InTheDay (int day)
+        {
+            List<Episode> episodes = null;
+            if (day >= 1 && day <= 31)
+            {
+                using (var db = new EpisodeContext())
+                {
+                    episodes = db.Episodes.Where(w => w.Date.Day == day).OrderBy(o => o.Date).ToList();
+                }
+            }
+            else Console.WriteLine("Zły dzień");
 
-
+            return episodes;
+        }
     }
 }

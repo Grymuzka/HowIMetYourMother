@@ -32,7 +32,7 @@ namespace HowIMetYourMother
             Console.WriteLine("...\nDane zostały pomyślnie pobrane z bazy danych");
             Console.WriteLine($"Na liście znalazło się {episodesAll.Count} odcinków\n");
 
-            // -------------------- LINQ --------------------
+            // -------------------------------------- LINQ ---------------------------------
 
             Console.WriteLine("********* Tytuły pierwszych odcinków sezonów *******\n");
             foreach(Episode episode in EpisodeData.FirstsEpisodes())
@@ -52,6 +52,12 @@ namespace HowIMetYourMother
             foreach(Episode episode in EpisodeData.FrymanAndLloyd())
             {
                 Console.WriteLine(episode.Title);
+            }
+
+            Console.WriteLine("\n********* Odcinki, które zostały wyemitowane 19 dnia miesiąca ***********\n");
+            foreach(Episode episode in EpisodeData.InTheDay(19))
+            {
+                Console.WriteLine(episode.Title + " - " + episode.Date.ToString("MM/dd/yyyy"));
             }
 
             Console.ReadKey();
